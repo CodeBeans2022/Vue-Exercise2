@@ -1,13 +1,15 @@
 <template>
     <div>
-        <Admin/>
+        <AdminTable/>
     </div>
 </template>
+
 <script>
-import Admin from '@/components/AdminTable.vue';
+import AdminTable from '@/components/AdminTable.vue';
+
 export default {
     components :{
-        Admin
+        AdminTable
     }
 }
 </script>

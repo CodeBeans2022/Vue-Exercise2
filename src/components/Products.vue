@@ -1,10 +1,10 @@
 <template>
     <div>
-        <button v-on:click="displayData">Display Data</button>
+        <button v-on:click="displayData()">Display Data</button>
         <div class="container">
             <div v-for="items in localData" :key="item">
                 <div class="card">
-                    <img :src="items.image" alt="">
+                    <img v-bind:src="items.image" alt="">
                     <h4>
                     {{ items.operatingSystem }}
                     </h4>
@@ -21,36 +21,16 @@
 <script>
 
 export default {
-    data() {
+    data: function() {
         return {
-            arrayData: [
-                {
-                    operatingSystem: "Windows 10",
-                    price: 1200,
-                    image: "https://i.postimg.cc/zByxfDBX/Windows.jpg"
-                },
-                {
-                    operatingSystem: "Ubuntu Linux",
-                    price: 980,
-                    image: "https://i.postimg.cc/QMx6RJZ7/Linux.jpg"
-                },
-                {
-                    operatingSystem: "Mac",
-                    price: 2000,
-                    image: "https://i.postimg.cc/25cHmLCK/Mac.jpg"
-                }
-            ],
-
-            localData: JSON.parse(localStorage.data)
-
-
+            localData: JSON.parse(localStorage.getItem('data'))
         };
     },
     methods: {
         displayData() {
             localStorage.setItem('data', JSON.stringify(this.arrayData));
-            console.table(JSON.parse(localStorage.data))
             alert('Purchase successful');
+            console.table(this.localData);
         }
     },
 

@@ -1,37 +1,41 @@
 <template>
     <div>
         <table>
-            <tr>
+            <thead>
                 <th>Operating System</th>
                 <th>Price</th>
+            </thead>
+            <tbody>
+            <tr v-for="item in arrayData" v-bind:key="item">
+                <td>{{ item.operatingSystem }}</td>
+                <td>R {{ item.price }}</td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
+            </tbody>
         </table>
     </div>
 </template>
 
 <script>
+
     export default {
-        name: 'Admin',
+name: 'AdminTable',
         data() {
             return {
                 arrayData : JSON.parse(localStorage.getItem('data')),
-                // localData: JSON.parse(localStorage.data)
             }
         },
-        methods: {
-            displayTable() {
-                localStorage.getItem('data')
-                console.log('localData');
-            }
-        }
     }
-    console.log(arrayData)
+   
 </script>
 
 <style scoped>
+table{
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
 
+td{
+    border: 2px solid rgb(80, 172, 80);
+}
 </style>

@@ -5,8 +5,29 @@
     <router-link to="/products">Products</router-link> |
     <router-link to="/admin">Admin</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
+
+<script>
+let arrayData = [
+  {
+    operatingSystem: "Windows 10",
+    price: 1200,
+    image: "https://i.postimg.cc/zByxfDBX/Windows.jpg"
+  },
+  {
+    operatingSystem: "Ubuntu Linux",
+    price: 980,
+    image: "https://i.postimg.cc/QMx6RJZ7/Linux.jpg"
+  },
+  {
+    operatingSystem: "Mac",
+    price: 2000,
+    image: "https://i.postimg.cc/25cHmLCK/Mac.jpg"
+  }
+]
+localStorage.setItem('data', JSON.stringify(arrayData));
+</script>
 
 <style>
 #app {
